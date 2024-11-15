@@ -10,21 +10,22 @@ require("dotenv").config();
 // SignUp Controller
 exports.signUp = async (req, res) => {
   try {
-    const { firstName, lastName, email, password, confirmPassword } = req.body;
+    console.log("fffffffff");
+    const { fname, lname, email, password, password_confirmation } = req.body;
 
-    if (!firstName || !lastName || !email || !password || !confirmPassword) {
+    if (!fname || !lname || !email || !password || !password_confirmation) {
       return res.status(403).json({
         success: false,
         message: "All fields are required",
-        firstName,
-        lastName,
+        fname,
+        lname,
         email,
         password,
-        confirmPassword,
+        password_confirmation,
       });
     }
 
-    if (password !== confirmPassword) {
+    if (password !== password_confirmation) {
       return res.status(400).json({
         success: false,
         message:
@@ -43,10 +44,9 @@ exports.signUp = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const user = await User.create({
-      firstName,
-      lastName,
+      fname,
+      lname,
       email,
-      contactNumber,
       password: hashedPassword,
     });
 
