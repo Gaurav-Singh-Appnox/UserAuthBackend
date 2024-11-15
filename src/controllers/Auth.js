@@ -68,6 +68,7 @@ exports.signUp = async (req, res) => {
 exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;
+    console.log(req.body);
     if (!email || !password) {
       return res.status(403).json({
         success: false,
@@ -75,7 +76,7 @@ exports.login = async (req, res) => {
       });
     }
 
-    const user = await User.findOne({ email }).populate("additionalDetails");
+    const user = await User.findOne({ email });
     if (!user) {
       return res.status(401).json({
         success: false,
@@ -153,7 +154,7 @@ exports.changePassword = async (req, res) => {
         updatedUserDetails.email,
         passwordUpdated(
           updatedUserDetails.email,
-          `Password updated successfully for ${updatedUserDetails.firstName} ${updatedUserDetails.lastName}`,
+          `Password updated successfully for ${updatedUserDetails.firstName} ${updatedUserDetails.lname}`,
         ),
       );
       console.log("Email sent successfully:", emailResponse.response);

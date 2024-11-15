@@ -1,18 +1,22 @@
 const express = require("express");
 const app = express();
-
 const database = require("./db/db");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const dotenv = require("dotenv");
-
+app.use(express.json());
 dotenv.config();
 
 database.connect();
-app.use(express.json());
-app.use(cookieParser());
-app.use(cors());
 
+app.use(cookieParser());
+app.use(
+  cors({
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  }),
+);
 const userRoutes = require("./routes/User");
 
 //routes
