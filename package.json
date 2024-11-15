@@ -4,8 +4,8 @@
   "description": "backend setup",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon -r dotenv/config --experimental-json-modules index.js",
-    "start": "node index.js",
+    "dev": "nodemon -r dotenv/config --experimental-json-modules src/index.js",
+    "start": "node src/index.js",
     "build": "npm install"
   },
   "author": "",
