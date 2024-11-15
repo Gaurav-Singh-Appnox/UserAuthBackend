@@ -10,7 +10,7 @@ require("dotenv").config();
 // SignUp Controller
 exports.signUp = async (req, res) => {
   try {
-    console.log("fffffffff");
+    console.log("Request body received in signUp:", req.body);
     const { fname, lname, email, password, password_confirmation } = req.body;
 
     if (!fname || !lname || !email || !password || !password_confirmation) {

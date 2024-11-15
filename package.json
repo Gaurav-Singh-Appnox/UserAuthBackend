@@ -2,10 +2,11 @@
   "name": "backendsetuppro",
   "version": "1.0.0",
   "description": "backend setup",
-  "main": "server.js",
+  "main": "index.js",
+  "type": "commonjs",
   "scripts": {
-    "dev": "nodemon -r dotenv/config --experimental-json-modules src/server.js",
-    "start": "node src/server.js",
+    "dev": "nodemon -r dotenv/config --experimental-json-modules src/index.js",
+    "start": "node src/index.js",
     "build": "npm install"
   },
   "author": "",
