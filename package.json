@@ -4,8 +4,9 @@
   "description": "backend setup",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon -r dotenv/config --experimental-json-modules src/index.js",
-    "build": "set NODE_ENV=production&& npm install --production"
+    "dev": "nodemon -r dotenv/config --experimental-json-modules index.js",
+    "start": "node index.js",
+    "build": "npm install"
   },
   "author": "",
   "license": "ISC",
@@ -27,5 +28,8 @@
   "devDependencies": {
     "nodemon": "^3.1.0",
     "prettier": "^3.2.5"
+  },
+  "engines": {
+    "node": ">=14.0.0"
   }
 }
